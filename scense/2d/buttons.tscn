@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://cefjgyu0dvwmb"]
+
+[ext_resource type="Script" path="res://scripts/buttons.gd" id="1_qahb6"]
+
+[node name="buttons" type="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qahb6")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="up" type="Button" parent="Node2D"]
+custom_minimum_size = Vector2(73, 73)
+offset_left = 338.0
+offset_top = 620.0
+offset_right = 440.0
+offset_bottom = 763.0
+
+[node name="down" type="Button" parent="Node2D"]
+offset_left = 336.0
+offset_top = 815.0
+offset_right = 440.0
+offset_bottom = 953.0
+
+[node name="right" type="Button" parent="Node2D"]
+custom_minimum_size = Vector2(73, 73)
+offset_left = 418.0
+offset_top = 736.0
+offset_right = 540.0
+offset_bottom = 838.0
+
+[node name="left" type="Button" parent="Node2D"]
+custom_minimum_size = Vector2(73, 73)
+offset_left = 231.0
+offset_top = 741.0
+offset_right = 356.0
+offset_bottom = 840.0
+
+[node name="act" type="Button" parent="Node2D"]
+offset_left = 35.0
+offset_top = 696.0
+offset_right = 210.0
+offset_bottom = 866.0
+
+[connection signal="button_down" from="Node2D/up" to="." method="_on_up_button_down"]
+[connection signal="button_up" from="Node2D/up" to="." method="_on_up_button_up"]
+[connection signal="button_down" from="Node2D/down" to="." method="_on_down_button_down"]
+[connection signal="button_up" from="Node2D/down" to="." method="_on_down_button_up"]
+[connection signal="button_down" from="Node2D/right" to="." method="_on_right_button_down"]
+[connection signal="button_up" from="Node2D/right" to="." method="_on_right_button_up"]
+[connection signal="button_down" from="Node2D/left" to="." method="_on_left_button_down"]
+[connection signal="button_up" from="Node2D/left" to="." method="_on_left_button_up"]
+[connection signal="button_down" from="Node2D/act" to="." method="_on_act_button_down"]
+[connection signal="button_up" from="Node2D/act" to="." method="_on_act_button_up"]

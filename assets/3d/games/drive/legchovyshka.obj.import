@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fppu3mn65wys"
+path="res://.godot/imported/legchovyshka.obj-d2eea64bfcc8919ba0d1854e2eb2e8be.mesh"
+
+[deps]
+
+files=["res://.godot/imported/legchovyshka.obj-d2eea64bfcc8919ba0d1854e2eb2e8be.mesh"]
+
+source_file="res://assets/3d/games/drive/legchovyshka.obj"
+dest_files=["res://.godot/imported/legchovyshka.obj-d2eea64bfcc8919ba0d1854e2eb2e8be.mesh", "res://.godot/imported/legchovyshka.obj-d2eea64bfcc8919ba0d1854e2eb2e8be.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

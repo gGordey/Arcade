@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8y3loekna8mx"
+path="res://.godot/imported/shield.obj-b23d7175fc306055e46155387b358c48.mesh"
+
+[deps]
+
+files=["res://.godot/imported/shield.obj-b23d7175fc306055e46155387b358c48.mesh"]
+
+source_file="res://assets/3d/games/power ups/shield.obj"
+dest_files=["res://.godot/imported/shield.obj-b23d7175fc306055e46155387b358c48.mesh", "res://.godot/imported/shield.obj-b23d7175fc306055e46155387b358c48.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

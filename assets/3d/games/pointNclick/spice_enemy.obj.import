@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://di1krfmv2juci"
+path="res://.godot/imported/spice_enemy.obj-64b8cef6dccbeb12b72b33eeb10c7dad.mesh"
+
+[deps]
+
+files=["res://.godot/imported/spice_enemy.obj-64b8cef6dccbeb12b72b33eeb10c7dad.mesh"]
+
+source_file="res://assets/3d/games/pointNclick/spice_enemy.obj"
+dest_files=["res://.godot/imported/spice_enemy.obj-64b8cef6dccbeb12b72b33eeb10c7dad.mesh", "res://.godot/imported/spice_enemy.obj-64b8cef6dccbeb12b72b33eeb10c7dad.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

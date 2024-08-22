@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://c16wwwjr5n8d6"]
+
+[ext_resource type="Script" path="res://scripts/games/slayer.gd" id="1_aslqg"]
+[ext_resource type="ArrayMesh" uid="uid://b28nx261q8agc" path="res://assets/3d/gamepad/gamepad.obj" id="2_3rrbi"]
+[ext_resource type="Texture2D" uid="uid://d4at1s6naq35w" path="res://assets/2d/games/slayer/dialog.png" id="3_ox13i"]
+[ext_resource type="Theme" uid="uid://cs3nwcl2n0hnh" path="res://assets/2d/main_theme.tres" id="5_8q8uk"]
+[ext_resource type="ArrayMesh" uid="uid://bxyy2oo0wb2n2" path="res://assets/3d/games/usefull assets/blue sky.obj" id="5_qqbxm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7hba"]
+albedo_color = Color(0.219608, 0.254902, 0.529412, 1)
+
+[node name="slayer" type="Node3D"]
+script = ExtResource("1_aslqg")
+
+[node name="Gamepad" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99994, -0.0109604, 0, 0.0109604, 0.99994, 0, 0, 0)
+mesh = ExtResource("2_3rrbi")
+
+[node name="enemys" type="Node3D" parent="."]
+transform = Transform3D(-3.09086e-08, 3.09086e-08, -1, 0.707107, 0.707107, 0, 0.707107, -0.707107, -4.37114e-08, 0, 0, -0.11345)
+
+[node name="enemy_attack" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="s" type="Node2D" parent="."]
+position = Vector2(0, 74)
+
+[node name="ui" type="Control" parent="s"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dialog" type="TextureRect" parent="s/ui"]
+custom_minimum_size = Vector2(422, 186)
+layout_mode = 0
+offset_left = 59.0
+offset_top = 100.0
+offset_right = 481.0
+offset_bottom = 286.0
+texture = ExtResource("3_ox13i")
+
+[node name="grid" type="GridContainer" parent="s/ui/dialog"]
+custom_minimum_size = Vector2(402, 98)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 17.0
+offset_right = 412.0
+offset_bottom = 115.0
+columns = 4
+
+[node name="name" type="Label" parent="s/ui"]
+custom_minimum_size = Vector2(396, 58)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 72.0
+offset_top = 49.0
+offset_right = 36.0
+offset_bottom = 107.0
+theme = ExtResource("5_8q8uk")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "MONSTER NAME"
+horizontal_alignment = 1
+
+[node name="BlueSky" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0917999, 0)
+mesh = ExtResource("5_qqbxm")
+surface_material_override/0 = SubResource("StandardMaterial3D_k7hba")

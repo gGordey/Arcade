@@ -1,0 +1,330 @@
+[gd_scene load_steps=26 format=3 uid="uid://bcqop17ohgtgx"]
+
+[ext_resource type="Script" path="res://scripts/main_game.gd" id="1_3iur2"]
+[ext_resource type="AudioStream" uid="uid://kboa2scmbogt" path="res://assets/audio/menu.mp3" id="1_jsxc2"]
+[ext_resource type="PackedScene" uid="uid://cpki36eq161ls" path="res://scense/controller.tscn" id="1_mlvow"]
+[ext_resource type="Script" path="res://scripts/minigames.gd" id="1_x6nou"]
+[ext_resource type="AudioStream" uid="uid://c6f4gujv7gjfg" path="res://assets/audio/klick1.mp3" id="2_qbfe2"]
+[ext_resource type="PackedScene" uid="uid://cefjgyu0dvwmb" path="res://scense/2d/buttons.tscn" id="2_xy2ba"]
+[ext_resource type="AudioStream" uid="uid://17jqlwm154mu" path="res://assets/audio/klick2.mp3" id="3_u88pn"]
+[ext_resource type="Script" path="res://scripts/hearts.gd" id="4_i2uxw"]
+[ext_resource type="AudioStream" uid="uid://dr8yiksk3tdia" path="res://assets/audio/klick3.mp3" id="4_o6hgr"]
+[ext_resource type="PackedScene" uid="uid://m1tovor306b2" path="res://assets/3d/games/usefull assets/gardient bg.glb" id="4_yh4y5"]
+[ext_resource type="Theme" uid="uid://cs3nwcl2n0hnh" path="res://assets/2d/main_theme.tres" id="5_vrp75"]
+[ext_resource type="AudioStream" uid="uid://dqnosm3fu54bk" path="res://assets/audio/klick4.mp3" id="5_x6y1j"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="5_yyx5m"]
+[ext_resource type="AudioStream" uid="uid://lictiitu30gy" path="res://assets/audio/dmg.mp3" id="7_mhw1l"]
+[ext_resource type="Texture2D" uid="uid://dkql3uyd5u6dl" path="res://assets/2d/games/timer.png" id="8_lsskr"]
+[ext_resource type="AudioStream" uid="uid://bap1vnrq5yx4f" path="res://assets/audio/in_game.mp3" id="8_v6576"]
+[ext_resource type="AudioStream" uid="uid://b33iq3fkuk0wu" path="res://assets/audio/zvuk-chasov.mp3" id="9_aovoj"]
+[ext_resource type="Texture2D" uid="uid://t1rju7tw4yex" path="res://assets/2d/games/timer_progress.png" id="9_tvnr6"]
+[ext_resource type="AudioStream" uid="uid://caf3mvin02vvd" path="res://assets/audio/budilka.mp3" id="10_8u2ho"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ec88o"]
+random_volume_offset_db = 0.5
+streams_count = 4
+stream_0/stream = ExtResource("2_qbfe2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_u88pn")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_o6hgr")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_x6y1j")
+stream_3/weight = 1.0
+
+[sub_resource type="Environment" id="Environment_y876r"]
+ambient_light_energy = 1.37
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_of3d2"]
+size = Vector3(1, 0.468262, 0.165466)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hcko3"]
+size = Vector3(1, 0.449112, 0.186035)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w5mqq"]
+size = Vector3(0.0515137, 0.450256, 1.19043)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4k4bf"]
+size = Vector3(0.0794678, 0.449097, 1.20972)
+
+[node name="game" type="Node"]
+script = ExtResource("1_3iur2")
+
+[node name="audio" type="Node" parent="."]
+
+[node name="menu" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("1_jsxc2")
+volume_db = -3.326
+autoplay = true
+mix_target = 2
+
+[node name="click" type="AudioStreamPlayer" parent="audio"]
+stream = SubResource("AudioStreamRandomizer_ec88o")
+volume_db = 0.028
+
+[node name="dmg" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("7_mhw1l")
+volume_db = -9.847
+
+[node name="in_game" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("8_v6576")
+volume_db = 8.0
+
+[node name="tic_tac" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("9_aovoj")
+volume_db = -1.846
+
+[node name="zvon" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("10_8u2ho")
+volume_db = -8.0
+
+[node name="world" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world"]
+environment = SubResource("Environment_y876r")
+
+[node name="lights" type="Node3D" parent="world"]
+
+[node name="sun" type="DirectionalLight3D" parent="world/lights"]
+transform = Transform3D(0.891797, -0.433578, 0.129255, 0, 0.285688, 0.958323, -0.452435, -0.85463, 0.254776, 0, 0, 0)
+light_color = Color(1, 0.921569, 0.607843, 1)
+light_energy = 3.168
+
+[node name="sun2" type="DirectionalLight3D" parent="world/lights"]
+transform = Transform3D(0.5, -0.832477, -0.238709, 0, -0.275637, 0.961262, -0.866025, -0.480631, -0.137819, 0, 0, 0)
+light_color = Color(0, 0.94902, 0.94902, 1)
+light_energy = 2.046
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world/lights"]
+transform = Transform3D(-0.999063, 0, -0.0432706, 0, 1, 0, 0.0432706, 0, -0.999063, 0, 0, 0)
+light_energy = 0.898
+
+[node name="main camera" type="Camera3D" parent="world"]
+transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 1.8, 0.154255)
+fov = 70.0
+
+[node name="minigames" type="Node3D" parent="world"]
+script = ExtResource("1_x6nou")
+
+[node name="game_timer" type="Timer" parent="world/minigames"]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="lose_timer" type="Timer" parent="world/minigames"]
+wait_time = 0.7
+one_shot = true
+autostart = true
+
+[node name="gardient bg" parent="world" instance=ExtResource("4_yh4y5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202, 0)
+
+[node name="controller" parent="world" instance=ExtResource("1_mlvow")]
+
+[node name="Area3D" type="Area3D" parent="world/controller" groups=["console_borders"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/controller/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00537109, 0.417267)
+shape = SubResource("BoxShape3D_of3d2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="world/controller/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00478363, -0.918152)
+shape = SubResource("BoxShape3D_hcko3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="world/controller/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.526977, 0.00192261, -0.262939)
+shape = SubResource("BoxShape3D_w5mqq")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="world/controller/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533753, 0.00384521, -0.253052)
+shape = SubResource("BoxShape3D_4k4bf")
+
+[node name="borders" type="Node3D" parent="world/controller"]
+
+[node name="up_left" type="Marker3D" parent="world/controller/borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.478957, 0, -0.831433)
+
+[node name="down_right" type="Marker3D" parent="world/controller/borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4793, 0, 0.334741)
+
+[node name="hearts" type="Node3D" parent="world"]
+script = ExtResource("4_i2uxw")
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_yyx5m")
+
+[node name="in_game" type="Control" parent="ui"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scores" type="Control" parent="ui/in_game"]
+anchors_preset = 0
+offset_right = 540.0
+offset_bottom = 100.0
+theme = ExtResource("5_vrp75")
+
+[node name="main_score" type="Label" parent="ui/in_game/scores"]
+custom_minimum_size = Vector2(280, 64)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme = ExtResource("5_vrp75")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+text = "SCORE"
+horizontal_alignment = 1
+
+[node name="buttons" parent="ui/in_game" instance=ExtResource("2_xy2ba")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+
+[node name="next_game_timer" type="TextureProgressBar" parent="ui/in_game"]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 126.0
+offset_right = 515.0
+offset_bottom = 190.0
+max_value = 15.0
+step = 0.1
+value = 15.0
+fill_mode = 4
+texture_under = ExtResource("8_lsskr")
+texture_progress = ExtResource("9_tvnr6")
+
+[node name="lose_screan" type="Control" parent="ui"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_vrp75")
+
+[node name="ColorRect" type="ColorRect" parent="ui/lose_screan"]
+modulate = Color(1, 1, 1, 0.717647)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[node name="you_lose" type="Label" parent="ui/lose_screan"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 182.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+text = "Oh on...
+YOU LOSE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="final_score" type="Label" parent="ui/lose_screan"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+text = "Final Score: 9999"
+horizontal_alignment = 1
+
+[node name="new_game" type="Button" parent="ui/lose_screan"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = 89.0
+offset_right = 181.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "New Game"
+
+[node name="open_menu" type="Button" parent="ui/lose_screan"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = 274.5
+offset_right = 121.0
+offset_bottom = 335.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+text = "Menu"
+
+[node name="main_menu" type="Control" parent="ui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_vrp75")
+
+[node name="menu_start" type="Button" parent="ui/main_menu"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "PLAY"
+
+[node name="Label" type="Label" parent="ui/main_menu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 59.0
+offset_bottom = 253.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 35
+theme_override_constants/line_spacing = -33
+theme_override_font_sizes/font_size = 70
+text = "POCKET 
+MINIGAMER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ui/lose_screan/new_game" to="ui" method="_on_new_game_pressed"]
+[connection signal="pressed" from="ui/lose_screan/open_menu" to="ui" method="_on_open_menu_pressed"]
+[connection signal="pressed" from="ui/main_menu/menu_start" to="ui" method="_on_menu_start_pressed"]

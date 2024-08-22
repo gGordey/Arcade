@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b28nx261q8agc"
+path="res://.godot/imported/gamepad.obj-1242f6a422a8c9a3d3d81590305a66bd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gamepad.obj-1242f6a422a8c9a3d3d81590305a66bd.mesh"]
+
+source_file="res://assets/3d/gamepad/gamepad.obj"
+dest_files=["res://.godot/imported/gamepad.obj-1242f6a422a8c9a3d3d81590305a66bd.mesh", "res://.godot/imported/gamepad.obj-1242f6a422a8c9a3d3d81590305a66bd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
