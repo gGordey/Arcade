@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://f30l5l13s2xk"
+path="res://.godot/imported/bullet.obj-b9168c0074e5850258bf09aaee8c0801.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bullet.obj-b9168c0074e5850258bf09aaee8c0801.mesh"]
+
+source_file="res://assets/3d/games/shootan/bullet.obj"
+dest_files=["res://.godot/imported/bullet.obj-b9168c0074e5850258bf09aaee8c0801.mesh", "res://.godot/imported/bullet.obj-b9168c0074e5850258bf09aaee8c0801.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

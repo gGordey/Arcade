@@ -6,8 +6,9 @@ extends Node3D
 	'pointNclick' : preload("res://scense/minigames/pointNclick/pointNclicktscn.tscn"),
 	'slayer' : preload("res://scense/minigames/slayer/slayer.tscn"),
 	'driver' : preload("res://scense/minigames/driver/driver.tscn"),
+	'shootan' : preload("res://scense/minigames/shootan/shootan.tscn"),
 }
-var game_names = ['snake','flappy bird','slayer','driver']
+var game_names = ['shootan','shootan']#['snake','flappy bird','slayer','driver','shootan']
 var active_minigame := ''
 var last_minigame
 var is_losed : bool
