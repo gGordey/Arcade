@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://64ofujspoag6"]
+[gd_scene load_steps=13 format=3 uid="uid://64ofujspoag6"]
 
 [ext_resource type="Script" path="res://scripts/games/shootan.gd" id="1_tvvsj"]
 [ext_resource type="ArrayMesh" uid="uid://b28nx261q8agc" path="res://assets/3d/gamepad/gamepad.obj" id="2_37o2i"]
 [ext_resource type="ArrayMesh" uid="uid://bxyy2oo0wb2n2" path="res://assets/3d/games/usefull assets/blue sky.obj" id="3_1o5a5"]
 [ext_resource type="ArrayMesh" uid="uid://rm6bpujc8o0v" path="res://assets/3d/games/shootan/cannon.obj" id="4_ec6tr"]
 [ext_resource type="Material" uid="uid://dhl1n2sdifyqf" path="res://assets/3d/outline_material_3d.tres" id="5_rs5ly"]
+[ext_resource type="PackedScene" uid="uid://r8noyf8lue64" path="res://scense/minigames/shootan/enemy.tscn" id="6_3jbpc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0qpl"]
 shading_mode = 0
@@ -79,3 +80,6 @@ mesh = SubResource("ArrayMesh_p4sus")
 [node name="shoot_timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="enemy" parent="." instance=ExtResource("6_3jbpc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0198211, 0, -0.678521)

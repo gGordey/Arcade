@@ -24,7 +24,7 @@ _surfaces = [{
 radius = 0.258333
 
 [node name="bullet" type="StaticBody3D"]
-transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("1_banif")
 
 [node name="Bullet" type="MeshInstance3D" parent="."]
