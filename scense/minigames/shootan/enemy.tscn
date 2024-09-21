@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://r8noyf8lue64"]
+[gd_scene load_steps=9 format=3 uid="uid://civeepx2g6y2x"]
 
 [ext_resource type="ArrayMesh" uid="uid://dfji217d2ra5k" path="res://assets/3d/games/shootan/enemy.obj" id="1_6w7aw"]
 [ext_resource type="Script" path="res://scripts/games/shoot/enemy.gd" id="1_e175r"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ceigs2ldjfx5p"]
 
 [ext_resource type="ArrayMesh" uid="uid://bm20h7hlyb41i" path="res://assets/3d/multyple_using/heart.obj" id="1_jjsoi"]
-[ext_resource type="Script" path="res://scripts/heart_gamepad.gd" id="2_cjg3i"]
+[ext_resource type="Script" path="res://scripts/heart.gd" id="1_v0e2y"]
 [ext_resource type="Material" uid="uid://dhl1n2sdifyqf" path="res://assets/3d/outline_material_3d.tres" id="2_kpuo6"]
 [ext_resource type="ArrayMesh" uid="uid://b8y3loekna8mx" path="res://assets/3d/games/power ups/shield.obj" id="4_31o1s"]
 
@@ -45,7 +45,7 @@ _surfaces = [{
 }]
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("2_cjg3i")
+script = ExtResource("1_v0e2y")
 
 [node name="Shield" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.55671e-09, -1.77636e-15, -0.05, 0.0328141, 0.0377257, 4.30306e-09, 0.0377257, -0.0328141, 4.94714e-09, -0.00281434, 0.0576947, 0.0768003)

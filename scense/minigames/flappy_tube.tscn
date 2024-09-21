@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://debbfphj3ltm"]
+[gd_scene load_steps=6 format=3 uid="uid://debbfphj3ltm"]
 
 [ext_resource type="ArrayMesh" uid="uid://d0p0vpen1bew4" path="res://assets/3d/games/flappy bird/tube.obj" id="1_1nxux"]
-[ext_resource type="Script" path="res://scripts/games/flappy/flappy_tube.gd" id="1_uwbud"]
 [ext_resource type="Material" uid="uid://dhl1n2sdifyqf" path="res://assets/3d/outline_material_3d.tres" id="2_m02an"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b27el"]
@@ -26,7 +25,6 @@ _surfaces = [{
 
 [node name="tube" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0261412)
-script = ExtResource("1_uwbud")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000701904, 0.11026, 0.0925903)

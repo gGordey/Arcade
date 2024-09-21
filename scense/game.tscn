@@ -89,18 +89,22 @@ environment = SubResource("Environment_y876r")
 transform = Transform3D(0.891797, -0.433578, 0.129255, 0, 0.285688, 0.958323, -0.452435, -0.85463, 0.254776, 0, 0, 0)
 light_color = Color(1, 0.921569, 0.607843, 1)
 light_energy = 3.168
+sky_mode = 1
 
 [node name="sun2" type="DirectionalLight3D" parent="world/lights"]
 transform = Transform3D(0.5, -0.832477, -0.238709, 0, -0.275637, 0.961262, -0.866025, -0.480631, -0.137819, 0, 0, 0)
 light_color = Color(0, 0.94902, 0.94902, 1)
 light_energy = 2.046
+sky_mode = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="world/lights"]
 transform = Transform3D(-0.999063, 0, -0.0432706, 0, 1, 0, 0.0432706, 0, -0.999063, 0, 0, 0)
 light_energy = 0.898
+sky_mode = 1
 
 [node name="main camera" type="Camera3D" parent="world"]
 transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 1.8, 0.154255)
+current = true
 fov = 70.0
 
 [node name="minigames" type="Node3D" parent="world"]
@@ -149,6 +153,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4793, 0, 0.334741)
 
 [node name="hearts" type="Node3D" parent="world"]
 script = ExtResource("4_i2uxw")
+
+[node name="Debug_Camera3D" type="Camera3D" parent="world"]
+transform = Transform3D(1, 0, 0, 0, 0.0138401, 0.999904, 0, -0.999904, 0.0138401, 0, 3.79198, 0)
 
 [node name="ui" type="Control" parent="."]
 layout_mode = 3
@@ -325,6 +332,7 @@ MINIGAMER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="timeout" from="world/minigames/game_timer" to="world/minigames" method="_on_game_timer_timeout"]
 [connection signal="pressed" from="ui/lose_screan/new_game" to="ui" method="_on_new_game_pressed"]
 [connection signal="pressed" from="ui/lose_screan/open_menu" to="ui" method="_on_open_menu_pressed"]
 [connection signal="pressed" from="ui/main_menu/menu_start" to="ui" method="_on_menu_start_pressed"]

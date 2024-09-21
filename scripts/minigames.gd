@@ -8,7 +8,7 @@ extends Node3D
 	'driver' : preload("res://scense/minigames/driver/driver.tscn"),
 	'shootan' : preload("res://scense/minigames/shootan/shootan.tscn"),
 }
-var game_names = ['shootan','shootan']#['snake','flappy bird','slayer','driver','shootan']
+var game_names = ['shootan','shootan']#['snake','flappy bird','slayer','driver']
 var active_minigame := ''
 var last_minigame
 var is_losed : bool
@@ -45,24 +45,15 @@ func _ready():
 	$game_timer.wait_time = game_time
 	G.minigame = self
 	$"../hearts".heart_count = hp
-	
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if !game: return
-	if $game_timer.time_left <= 5 && !G.audio['clock'].playing && hp: G.audio['clock'].play()
-	if is_losed && $lose_timer.is_stopped() && hp:
+	if $game_timer.time_left < 5 && !G.audio['clock'].playing && hp: G.audio['clock'].play()
+	if $lose_timer.is_stopped() && is_losed:
 		end_minigame(1)
 		is_losed = false
-		return
 	if game.is_game_in_progress:
 		$"../../ui/in_game/next_game_timer".value = $game_timer.time_left
-		if $game_timer.is_stopped():
-			G.audio['zvon'].play()
-			if !mini_score:
-				take_dmg()
-			else:
-				end_minigame(1)
-			$game_timer.start()
 
 func start_game():
 	if game: end_minigame(1)
@@ -78,8 +69,7 @@ func start_game():
 	change_minigame(game_names[randi_range(0, game_names.size()-1)])
 
 func moment_click(tag : String):
-	if !game: return
-	if game.has_method('click_control'):
+	if game && game.has_method('click_control'):
 		game.click_control(tag)
 
 func lose():
@@ -111,6 +101,7 @@ func change_score(num : int):
 	$"../../ui/in_game/scores/main_score".set_text('SCORE ' + str(score))
 
 func take_dmg():
+	if !game.is_game_in_progress: return
 	G.audio['dmg'].play()
 	if !shield: hp-=1
 	else: shield=false
@@ -144,3 +135,11 @@ func add_time(amound:float):
 func take_shield():
 	shield = true
 	$"../hearts".add_shield()
+
+func _on_game_timer_timeout():
+	G.audio['zvon'].play()
+	if !mini_score:
+		take_dmg()
+	else:
+		end_minigame(1)
+	$game_timer.start()

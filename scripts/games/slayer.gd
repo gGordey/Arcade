@@ -26,9 +26,6 @@ func start_game():
 	new_rand_enemy()
 	$Gamepad.hide()
 
-func _physics_process(_delta):
-	if !is_game_in_progress: return
-
 func sucsesful_clik():
 	if combination.size() > show_comb_lenth: new_arrow(combination[show_comb_lenth])
 	combination.erase(current_enemy.combination[0])

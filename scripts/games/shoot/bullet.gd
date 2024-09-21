@@ -3,6 +3,7 @@ extends StaticBody3D
 var move_speed := 1.5
 
 var skp :int
+
 func _process(delta):
 	skp+=1
 	if !skp>=2: return
@@ -12,5 +13,8 @@ func _process(delta):
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group('enemy'):
-		body.queue_free()
+		body.take_dmg()
+		queue_free()
+	if body.is_in_group("power up"):
+		body.do()
 		queue_free()
